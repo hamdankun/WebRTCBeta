@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<input type="text" name="id" id="room-id">
+<button id="openNewSessionButton">Open New Room</button>
+<button id="joinSessionButton">Join Room</button>
+
+</body>
+<script src="//www.rtcmulticonnection.org/latest.js"></script>
+
+<script>
+
+var connection = new RTCMultiConnection();
+document.querySelector('#openNewSessionButton').onclick = function() {
+    this.disabled = true;
+    connection.open(document.getElementById('room-id').value);
+};
+document.querySelector('#joinSessionButton').onclick = function() {
+     this.disabled = true;
+    // connection.connect();
+     connection.join(document.getElementById('room-id').value);
+};
+</script>
+</html>
